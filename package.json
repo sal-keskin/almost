@@ -1,0 +1,26 @@
+{
+  "name": "almost",
+  "private": true,
+  "version": "0.1.0",
+  "description": "ALMOST — near-miss simulator for occupational health (M1)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "test": "vitest run",
+    "calibrate": "vite-node scripts/calibrate.ts",
+    "acceptance": "node e2e/acceptance.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.6",
+    "vite-node": "^6.0.0",
+    "vitest": "^5.1.0"
+  },
+  "dependencies": {
+    "@fontsource/geist-mono": "^5.3.0",
+    "@fontsource/instrument-sans": "^5.3.0",
+    "@fontsource/schibsted-grotesk": "^5.3.0"
+  }
+}
