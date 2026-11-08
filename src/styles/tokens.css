@@ -1,0 +1,38 @@
+/* ALMOST design tokens — from the build brief, art direction section. */
+:root {
+  /* palette */
+  --ground: #1b1916;           /* warm near-black; never pure black */
+  --display: #ffffff;          /* headlines and key numbers */
+  --body: #e6e1d8;             /* running text, captions, axes */
+  --muted: #a9a398;
+  --action: #4b44d8;           /* one filled button per screen */
+
+  --aurora-1: #4c44a8;
+  --aurora-2: #6c86ae;
+  --aurora-3: #8e9886;
+  --aurora-4: #c29a4e;
+  --aurora-5: #cfbe92;
+
+  --ghost: rgba(255, 255, 255, 0.11);   /* plausible replay, 8–14% */
+  --gold: #e8b95a;                      /* contact */
+  --coral: #e5735c;                     /* high-harm contact (M3) */
+  --periwinkle: #8f89ff;                /* fixed layout (M2) */
+  --sand: #cfbe92;                      /* adversary's replay, dashed (M2) */
+
+  /* lines and shapes */
+  --hairline: rgba(255, 255, 255, 0.26);
+  --hairline-soft: rgba(255, 255, 255, 0.12);
+  --radius: 22px;
+  --radius-btn: 10px;
+
+  /* type */
+  --font-display: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --track-label: 0.17em;
+
+  /* motion */
+  --swarm-fade: 600ms;
+
+  --touch: 44px;
+}

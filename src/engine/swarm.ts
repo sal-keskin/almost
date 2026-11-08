@@ -29,6 +29,8 @@ export interface SwarmResult {
   contacts: number;
   nearMisses: number;
   luck: Interval;
+  /** FNV-1a fingerprint of every array: equal hashes mean an identical swarm */
+  hash: string;
   ms: number;
 }
 
@@ -60,6 +62,7 @@ export function allocate(scene: Scene, config: RunConfig): SwarmResult {
     contacts: 0,
     nearMisses: 0,
     luck: { p: 0, lo: 0, hi: 1 },
+    hash: '',
     ms: 0,
   };
 }
@@ -98,6 +101,7 @@ export function finalize(scene: Scene, r: SwarmResult): SwarmResult {
   r.contacts = c;
   r.nearMisses = nm;
   r.luck = wilson(c, r.n);
+  r.hash = swarmHash(r);
   return r;
 }
 
