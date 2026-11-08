@@ -156,6 +156,7 @@ async function touchChecks(browser) {
   // Draw: wall tool
   let s0 = await S();
   await tapSel('[data-tool=wall]');
+  await page.waitForFunction(() => window.__almost.ui.drawTool === 'wall', null, { timeout: 2000 }).catch(() => {});
   step('tap Wall tool', (await U()).drawTool === 'wall');
   await drag(await scr(3, 3), await scr(7, 3));
   let s1 = await S();
@@ -164,6 +165,7 @@ async function touchChecks(browser) {
 
   // select tool: drag cabinet
   await tapSel('[data-tool=select]');
+  await page.waitForFunction(() => window.__almost.ui.drawTool === 'select', null, { timeout: 2000 });
   const cab0 = s1.furniture[0].center;
   await drag(await scr(cab0.x, cab0.y), await scr(cab0.x - 4, cab0.y));
   s1 = await S();
@@ -184,6 +186,7 @@ async function touchChecks(browser) {
   // furniture tool: tap to place
   const nf = (await S()).furniture.length;
   await tapSel('[data-tool=furniture]');
+  await page.waitForFunction(() => window.__almost.ui.drawTool === 'furniture', null, { timeout: 2000 });
   await tapAt(await scr(4, 6));
   step('place furniture with a tap', (await S()).furniture.length === nf + 1);
 
@@ -203,6 +206,7 @@ async function touchChecks(browser) {
 
   // Actors: drag a path vertex, tap a segment to insert one
   await tapSel('[data-screen=actors]');
+  await page.waitForFunction(() => window.__almost.ui.screen === 'actors', null, { timeout: 2000 });
   s1 = await S();
   const v = s1.actors[0].path[0];
   await drag(await scr(v.x, v.y), await scr(v.x + 1, v.y));
@@ -238,6 +242,7 @@ async function touchChecks(browser) {
 
   // Luck: dial by touch
   await tapSel('[data-screen=luck]');
+  await page.waitForFunction(() => window.__almost.ui.screen === 'luck', null, { timeout: 2000 });
   await page.waitForFunction(() => window.__almost.lastRun);
   const db = await page.locator('.dial').boundingBox();
   const cx = db.x + db.width / 2, cy = db.y + db.height / 2, r = db.width * 0.33;
